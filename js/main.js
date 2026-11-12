@@ -9,8 +9,9 @@ let timers = [], queuedFrame = 0;
 function fit(){
   const nav = $('.proto');
   const style = getComputedStyle(nav);
-  const reservedWidth = nav.offsetWidth + parseFloat(style.marginRight) +
-    2 * parseFloat(style.getPropertyValue('--layout-inset'));
+  const insets = 2 * parseFloat(style.getPropertyValue('--layout-inset'));
+  const navOnTop = style.flexDirection === 'row';
+  const reservedWidth = navOnTop ? insets : insets + nav.offsetWidth + parseFloat(style.marginRight);
   const scale = Math.min(1, Math.max(1, innerWidth - reservedWidth) / app.offsetWidth, innerHeight / app.offsetHeight);
   document.documentElement.style.setProperty('--phone-scale', scale);
   sizeDust();
