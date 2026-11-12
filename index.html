@@ -1,1 +1,852 @@
-<>
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#000000">
+        <title>Вручение ЭПС · прототип</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="./js/main.js" defer></script>
+    </head>
+    <body>
+        <div class="app" id="app" data-scr="start" data-g="0">
+            <div class="top-bar" id="topBar">
+                <div class="status-bar" aria-hidden="true">
+                    <span class="status-bar__time">9:41</span>
+                    <img class="status-bar__levels" src="./img/status-levels.svg" width="140.5" height="54" alt="">
+                    <img class="status-bar__levels status-bar__levels--light" src="./img/status-levels-light.svg" width="140.5" height="54" alt="">
+                </div>
+                <div class="top-bar__actions">
+                    <button class="close-btn" type="button" data-close aria-label="Закрыть">
+                        <img src="./img/close.svg" width="20" height="20" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="phone-content" id="phoneContent">
+                <div class="viewport" id="viewport">
+                    <div class="glow" id="glow"></div>
+                    <canvas id="dust" aria-hidden="true"></canvas>
+                    <svg class="line" width="1024" height="919.584" viewBox="0 0 1024 919.584" fill="none" aria-hidden="true">
+                        <path d="M230.2 0.275115C188.185 186.489 288.436 288.695 353.544 283.018C375.843 281.074 385.786 269.759 388.466 255.508C393.611 228.151 371.989 189.974 359.635 186.512C342.921 181.826 335.062 220.032 388.466 255.508C395.095 259.912 402.668 264.274 411.285 268.506C489.323 306.834 537.962 358.239 550.307 445.166C567.391 565.461 608.274 618.905 726.444 677.124C777.034 702.049 793.939 734.267 794.88 758.527C795.845 783.424 779.994 799.938 766.484 791.578C755.017 784.482 765.876 762.949 794.88 758.527C833.337 752.663 903.696 776.883 996.211 904.73" stroke="#1A4072" stroke-width="2.5"/>
+                    </svg>
+                    <div class="stage" id="stage">
+                        <div class="box" id="box">
+                            <div class="circle"></div>
+                            <div class="layer bg">
+                                <img alt="" src="./img/gift-background.webp">
+                            </div>
+                            <div class="env">
+                                <div class="jig">
+                                    <div class="envBack">
+                                        <img class="part flapO" alt="" src="./img/envelope-flap-open.webp">
+                                        <img class="part body" alt="" src="./img/envelope-body.webp">
+                                    </div>
+                                    <div class="cardbox">
+                                        <div class="card-edge"></div>
+                                        <div class="card">
+                                            <img class="ill" alt="Подарочный сертификат" src="./img/certificate-card.webp">
+                                            <div class="sheen"></div>
+                                            <img class="logo" alt="Читай-город" src="./img/chitai-gorod-logo.webp">
+                                            <div class="price">10 000 ₽</div>
+                                            <div class="gloss"></div>
+                                            <div class="gb"></div>
+                                        </div>
+                                    </div>
+                                    <div class="envFront">
+                                        <img class="part front" alt="" src="./img/envelope-front.webp">
+                                        <img class="part flapC" alt="" src="./img/envelope-flap-closed.webp">
+                                        <img class="part seal" alt="Печать «Читай-город»" src="./img/wax-seal.webp">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layer fg">
+                                <img alt="" src="./img/gift-foreground.webp">
+                            </div>
+                            <div class="sd" id="sdSmall">
+                                <i class="st k45160" style="left:1076px;top:425px;width:14px;height:14px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k45161" style="left:994px;top:427px;width:10px;height:10px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k45162" style="left:1095px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k45163" style="left:1023px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k45164" style="left:961px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k45191" style="left:948px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k45204" style="left:976px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k45205" style="left:1069px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k45207" style="left:1027px;top:431px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k45208" style="left:1055px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.8% 41.2%,100.0% 50.0%,58.8% 58.8%,50.0% 100.0%,41.2% 58.8%,0.0% 50.0%,41.2% 41.2%)"></b>
+                                </i>
+                                <i class="st k45215" style="left:1050px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k45222" style="left:1036px;top:431px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.8% 41.2%,100.0% 50.0%,58.8% 58.8%,50.0% 100.0%,41.2% 58.8%,0.0% 50.0%,41.2% 41.2%)"></b>
+                                </i>
+                                <i class="st k45227" style="left:1069px;top:433px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k45229" style="left:1079px;top:436px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k45230" style="left:908px;top:435px;width:2px;height:2px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 3px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k45233" style="left:1104px;top:444px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k45236" style="left:1060px;top:445px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.5% 41.5%,100.0% 50.0%,58.5% 58.5%,50.0% 100.0%,41.5% 58.5%,0.0% 50.0%,41.5% 41.5%)"></b>
+                                </i>
+                                <i class="st k45237" style="left:1033px;top:451px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k45243" style="left:1092px;top:461px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k45254" style="left:1084px;top:490px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k45256" style="left:1103px;top:494px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k45257" style="left:1103px;top:496px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.5% 41.5%,100.0% 50.0%,58.5% 58.5%,50.0% 100.0%,41.5% 58.5%,0.0% 50.0%,41.5% 41.5%)"></b>
+                                </i>
+                                <i class="st k45262" style="left:1093px;top:516px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k45263" style="left:1097px;top:524px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k45264" style="left:1097px;top:523px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k45276" style="left:1100px;top:563px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.5% 41.5%,100.0% 50.0%,58.5% 58.5%,50.0% 100.0%,41.5% 58.5%,0.0% 50.0%,41.5% 41.5%)"></b>
+                                </i>
+                                <i class="st k45381" style="left:791px;top:781px;width:2px;height:2px;filter:drop-shadow(0 0 1px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k45421" style="left:992px;top:425px;width:14px;height:14px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k45422" style="left:956px;top:425px;width:14px;height:14px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k45423" style="left:944px;top:425px;width:14px;height:14px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k45424" style="left:971px;top:425px;width:14px;height:14px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k45425" style="left:1023px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k45426" style="left:956px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.5% 41.5%,100.0% 50.0%,58.5% 58.5%,50.0% 100.0%,41.5% 58.5%,0.0% 50.0%,41.5% 41.5%)"></b>
+                                </i>
+                                <i class="st k45427" style="left:918px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k45445" style="left:1081px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k45447" style="left:1027px;top:431px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k45448" style="left:905px;top:434px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k45461" style="left:1050px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k45463" style="left:853px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k45469" style="left:951px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k45473" style="left:867px;top:431px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k45474" style="left:1036px;top:431px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.8% 41.2%,100.0% 50.0%,58.8% 58.8%,50.0% 100.0%,41.2% 58.8%,0.0% 50.0%,41.2% 41.2%)"></b>
+                                </i>
+                                <i class="st k45480" style="left:971px;top:435px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k45481" style="left:950px;top:436px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.5% 41.5%,100.0% 50.0%,58.5% 58.5%,50.0% 100.0%,41.5% 58.5%,0.0% 50.0%,41.5% 41.5%)"></b>
+                                </i>
+                                <i class="st k45483" style="left:928px;top:437px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k45486" style="left:974px;top:439px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.4% 42.6%,100.0% 50.0%,57.4% 57.4%,50.0% 100.0%,42.6% 57.4%,0.0% 50.0%,42.6% 42.6%)"></b>
+                                </i>
+                                <i class="st k45489" style="left:906px;top:445px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k45491" style="left:1061px;top:443px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.5% 41.5%,100.0% 50.0%,58.5% 58.5%,50.0% 100.0%,41.5% 58.5%,0.0% 50.0%,41.5% 41.5%)"></b>
+                                </i>
+                                <i class="st k45494" style="left:842px;top:445px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k45496" style="left:867px;top:448px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.4% 42.6%,100.0% 50.0%,57.4% 57.4%,50.0% 100.0%,42.6% 57.4%,0.0% 50.0%,42.6% 42.6%)"></b>
+                                </i>
+                                <i class="st k45497" style="left:964px;top:450px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.7% 43.3%,100.0% 50.0%,56.7% 56.7%,50.0% 100.0%,43.3% 56.7%,0.0% 50.0%,43.3% 43.3%)"></b>
+                                </i>
+                                <i class="st k45498" style="left:1033px;top:451px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k45642" style="left:791px;top:781px;width:2px;height:2px;filter:drop-shadow(0 0 1px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k45682" style="left:753px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k45683" style="left:837px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k45684" style="left:961px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k45685" style="left:782px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k45690" style="left:948px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k45695" style="left:976px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k45696" style="left:772px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k45697" style="left:852px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k45698" style="left:919px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k45701" style="left:905px;top:433px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k45702" style="left:769px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k45703" style="left:764px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.8% 41.2%,100.0% 50.0%,58.8% 58.8%,50.0% 100.0%,41.2% 58.8%,0.0% 50.0%,41.2% 41.2%)"></b>
+                                </i>
+                                <i class="st k45704" style="left:760px;top:433px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k45722" style="left:661px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k45725" style="left:848px;top:432px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k45726" style="left:700px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k45735" style="left:867px;top:432px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k45738" style="left:722px;top:434px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k45741" style="left:706px;top:435px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.7% 43.3%,100.0% 50.0%,56.7% 56.7%,50.0% 100.0%,43.3% 56.7%,0.0% 50.0%,43.3% 43.3%)"></b>
+                                </i>
+                                <i class="st k45748" style="left:749px;top:444px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.7% 43.3%,100.0% 50.0%,56.7% 56.7%,50.0% 100.0%,43.3% 56.7%,0.0% 50.0%,43.3% 43.3%)"></b>
+                                </i>
+                                <i class="st k45750" style="left:906px;top:444px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k45752" style="left:698px;top:445px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.7% 43.3%,100.0% 50.0%,56.7% 56.7%,50.0% 100.0%,43.3% 56.7%,0.0% 50.0%,43.3% 43.3%)"></b>
+                                </i>
+                                <i class="st k45753" style="left:839px;top:447px;width:10px;height:10px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k45756" style="left:784px;top:448px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.5% 41.5%,100.0% 50.0%,58.5% 58.5%,50.0% 100.0%,41.5% 58.5%,0.0% 50.0%,41.5% 41.5%)"></b>
+                                </i>
+                                <i class="st k45757" style="left:819px;top:449px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k45758" style="left:867px;top:450px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.4% 42.6%,100.0% 50.0%,57.4% 57.4%,50.0% 100.0%,42.6% 57.4%,0.0% 50.0%,42.6% 42.6%)"></b>
+                                </i>
+                                <i class="st k45943" style="left:753px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k45944" style="left:621px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k45945" style="left:666px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k45946" style="left:694px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k45960" style="left:657px;top:427px;width:10px;height:10px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k45972" style="left:628px;top:431px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k45979" style="left:626px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.8% 41.2%,100.0% 50.0%,58.8% 58.8%,50.0% 100.0%,41.2% 58.8%,0.0% 50.0%,41.2% 41.2%)"></b>
+                                </i>
+                                <i class="st k45980" style="left:783px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k45982" style="left:698px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k45984" style="left:760px;top:432px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k45985" style="left:707px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k45986" style="left:764px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.8% 41.2%,100.0% 50.0%,58.8% 58.8%,50.0% 100.0%,41.2% 58.8%,0.0% 50.0%,41.2% 41.2%)"></b>
+                                </i>
+                                <i class="st k45997" style="left:908px;top:431px;width:2px;height:2px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 3px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k45998" style="left:677px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k45999" style="left:630px;top:436px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k46001" style="left:770px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k46007" style="left:704px;top:435px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.7% 43.3%,100.0% 50.0%,56.7% 56.7%,50.0% 100.0%,43.3% 56.7%,0.0% 50.0%,43.3% 43.3%)"></b>
+                                </i>
+                                <i class="st k46009" style="left:721px;top:434px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k46010" style="left:694px;top:434px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k46013" style="left:695px;top:446px;width:10px;height:10px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.7% 43.3%,100.0% 50.0%,56.7% 56.7%,50.0% 100.0%,43.3% 56.7%,0.0% 50.0%,43.3% 43.3%)"></b>
+                                </i>
+                                <i class="st k46014" style="left:842px;top:440px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k46015" style="left:749px;top:444px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.7% 43.3%,100.0% 50.0%,56.7% 56.7%,50.0% 100.0%,43.3% 56.7%,0.0% 50.0%,43.3% 43.3%)"></b>
+                                </i>
+                                <i class="st k46020" style="left:620px;top:447px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k46021" style="left:631px;top:451px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k46027" style="left:630px;top:461px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k46028" style="left:623px;top:468px;width:10px;height:10px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k46033" style="left:603px;top:476px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k46037" style="left:592px;top:489px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k46043" style="left:591px;top:503px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                            </div>
+                            <div class="sd" id="sdBig">
+                                <i class="st k5099" style="left:1059px;top:408px;width:48px;height:48px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k5100" style="left:994px;top:427px;width:10px;height:10px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k5101" style="left:1095px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k5102" style="left:1023px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5103" style="left:961px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5130" style="left:948px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k5143" style="left:961px;top:415px;width:34px;height:34px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k5144" style="left:1069px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k5145" style="left:1027px;top:431px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k5146" style="left:1055px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.8% 41.2%,100.0% 50.0%,58.8% 58.8%,50.0% 100.0%,41.2% 58.8%,0.0% 50.0%,41.2% 41.2%)"></b>
+                                </i>
+                                <i class="st k5153" style="left:1050px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k5160" style="left:1036px;top:431px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.8% 41.2%,100.0% 50.0%,58.8% 58.8%,50.0% 100.0%,41.2% 58.8%,0.0% 50.0%,41.2% 41.2%)"></b>
+                                </i>
+                                <i class="st k5165" style="left:1059px;top:423px;width:28px;height:28px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5167" style="left:1079px;top:436px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k5168" style="left:908px;top:435px;width:2px;height:2px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 3px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k5171" style="left:1104px;top:444px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k5174" style="left:1060px;top:445px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.5% 41.5%,100.0% 50.0%,58.5% 58.5%,50.0% 100.0%,41.5% 58.5%,0.0% 50.0%,41.5% 41.5%)"></b>
+                                </i>
+                                <i class="st k5175" style="left:1033px;top:451px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k5181" style="left:1075px;top:443px;width:42px;height:42px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k5192" style="left:1084px;top:490px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k5194" style="left:1103px;top:494px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k5195" style="left:1103px;top:496px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.5% 41.5%,100.0% 50.0%,58.5% 58.5%,50.0% 100.0%,41.5% 58.5%,0.0% 50.0%,41.5% 41.5%)"></b>
+                                </i>
+                                <i class="st k5200" style="left:1093px;top:516px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k5201" style="left:1097px;top:524px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k5202" style="left:1083px;top:508px;width:32px;height:32px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k5214" style="left:1100px;top:563px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.5% 41.5%,100.0% 50.0%,58.5% 58.5%,50.0% 100.0%,41.5% 58.5%,0.0% 50.0%,41.5% 41.5%)"></b>
+                                </i>
+                                <i class="st k5319" style="left:791px;top:781px;width:2px;height:2px;filter:drop-shadow(0 0 1px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k5359" style="left:992px;top:425px;width:14px;height:14px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k5360" style="left:956px;top:425px;width:14px;height:14px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5361" style="left:944px;top:425px;width:14px;height:14px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k5362" style="left:952px;top:406px;width:52px;height:52px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k5363" style="left:1023px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5364" style="left:956px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.5% 41.5%,100.0% 50.0%,58.5% 58.5%,50.0% 100.0%,41.5% 58.5%,0.0% 50.0%,41.5% 41.5%)"></b>
+                                </i>
+                                <i class="st k5365" style="left:918px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k5383" style="left:1081px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k5384" style="left:1027px;top:431px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k5385" style="left:893px;top:421px;width:30px;height:30px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k5398" style="left:1050px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k5400" style="left:853px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k5406" style="left:951px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k5410" style="left:867px;top:431px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k5411" style="left:1036px;top:431px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.8% 41.2%,100.0% 50.0%,58.8% 58.8%,50.0% 100.0%,41.2% 58.8%,0.0% 50.0%,41.2% 41.2%)"></b>
+                                </i>
+                                <i class="st k5417" style="left:953px;top:418px;width:38px;height:38px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k5418" style="left:950px;top:436px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.5% 41.5%,100.0% 50.0%,58.5% 58.5%,50.0% 100.0%,41.5% 58.5%,0.0% 50.0%,41.5% 41.5%)"></b>
+                                </i>
+                                <i class="st k5420" style="left:928px;top:437px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k5423" style="left:974px;top:439px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.4% 42.6%,100.0% 50.0%,57.4% 57.4%,50.0% 100.0%,42.6% 57.4%,0.0% 50.0%,42.6% 42.6%)"></b>
+                                </i>
+                                <i class="st k5426" style="left:906px;top:445px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k5428" style="left:1061px;top:443px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.5% 41.5%,100.0% 50.0%,58.5% 58.5%,50.0% 100.0%,41.5% 58.5%,0.0% 50.0%,41.5% 41.5%)"></b>
+                                </i>
+                                <i class="st k5431" style="left:821px;top:424px;width:46px;height:46px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5433" style="left:867px;top:448px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.4% 42.6%,100.0% 50.0%,57.4% 57.4%,50.0% 100.0%,42.6% 57.4%,0.0% 50.0%,42.6% 42.6%)"></b>
+                                </i>
+                                <i class="st k5434" style="left:964px;top:450px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.7% 43.3%,100.0% 50.0%,56.7% 56.7%,50.0% 100.0%,43.3% 56.7%,0.0% 50.0%,43.3% 43.3%)"></b>
+                                </i>
+                                <i class="st k5435" style="left:1033px;top:451px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k5579" style="left:791px;top:781px;width:2px;height:2px;filter:drop-shadow(0 0 1px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k5619" style="left:753px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5620" style="left:827px;top:419px;width:26px;height:26px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k5621" style="left:961px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5622" style="left:782px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k5627" style="left:948px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k5632" style="left:976px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.3% 44.7%,100.0% 50.0%,55.3% 55.3%,50.0% 100.0%,44.7% 55.3%,0.0% 50.0%,44.7% 44.7%)"></b>
+                                </i>
+                                <i class="st k5633" style="left:772px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k5634" style="left:837px;top:414px;width:36px;height:36px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k5635" style="left:919px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k5637" style="left:905px;top:433px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k5638" style="left:769px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k5639" style="left:764px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.8% 41.2%,100.0% 50.0%,58.8% 58.8%,50.0% 100.0%,41.2% 58.8%,0.0% 50.0%,41.2% 41.2%)"></b>
+                                </i>
+                                <i class="st k5640" style="left:760px;top:433px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5658" style="left:640px;top:410px;width:44px;height:44px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k5661" style="left:848px;top:432px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k5662" style="left:700px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k5671" style="left:867px;top:432px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k5674" style="left:722px;top:434px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k5677" style="left:706px;top:435px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.7% 43.3%,100.0% 50.0%,56.7% 56.7%,50.0% 100.0%,43.3% 56.7%,0.0% 50.0%,43.3% 43.3%)"></b>
+                                </i>
+                                <i class="st k5684" style="left:736px;top:431px;width:30px;height:30px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.7% 43.3%,100.0% 50.0%,56.7% 56.7%,50.0% 100.0%,43.3% 56.7%,0.0% 50.0%,43.3% 43.3%)"></b>
+                                </i>
+                                <i class="st k5686" style="left:906px;top:444px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k5688" style="left:698px;top:445px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.7% 43.3%,100.0% 50.0%,56.7% 56.7%,50.0% 100.0%,43.3% 56.7%,0.0% 50.0%,43.3% 43.3%)"></b>
+                                </i>
+                                <i class="st k5689" style="left:839px;top:447px;width:10px;height:10px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5692" style="left:784px;top:448px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.5% 41.5%,100.0% 50.0%,58.5% 58.5%,50.0% 100.0%,41.5% 58.5%,0.0% 50.0%,41.5% 41.5%)"></b>
+                                </i>
+                                <i class="st k5693" style="left:819px;top:449px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k5694" style="left:844px;top:427px;width:50px;height:50px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.4% 42.6%,100.0% 50.0%,57.4% 57.4%,50.0% 100.0%,42.6% 57.4%,0.0% 50.0%,42.6% 42.6%)"></b>
+                                </i>
+                                <i class="st k5879" style="left:753px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5880" style="left:621px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k5881" style="left:666px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k5882" style="left:694px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k5896" style="left:657px;top:427px;width:10px;height:10px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k5908" style="left:614px;top:416px;width:34px;height:34px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k5915" style="left:626px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.8% 41.2%,100.0% 50.0%,58.8% 58.8%,50.0% 100.0%,41.2% 58.8%,0.0% 50.0%,41.2% 41.2%)"></b>
+                                </i>
+                                <i class="st k5916" style="left:783px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k5917" style="left:698px;top:428px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k5919" style="left:760px;top:432px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5920" style="left:707px;top:429px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k5921" style="left:746px;top:412px;width:40px;height:40px;filter:drop-shadow(0 0 9px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.8% 41.2%,100.0% 50.0%,58.8% 58.8%,50.0% 100.0%,41.2% 58.8%,0.0% 50.0%,41.2% 41.2%)"></b>
+                                </i>
+                                <i class="st k5932" style="left:908px;top:431px;width:2px;height:2px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 3px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k5933" style="left:677px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k5934" style="left:630px;top:436px;width:7px;height:7px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k5936" style="left:770px;top:430px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k5942" style="left:704px;top:435px;width:7px;height:7px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.7% 43.3%,100.0% 50.0%,56.7% 56.7%,50.0% 100.0%,43.3% 56.7%,0.0% 50.0%,43.3% 43.3%)"></b>
+                                </i>
+                                <i class="st k5944" style="left:721px;top:434px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k5945" style="left:694px;top:434px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.1% 42.9%,100.0% 50.0%,57.1% 57.1%,50.0% 100.0%,42.9% 57.1%,0.0% 50.0%,42.9% 42.9%)"></b>
+                                </i>
+                                <i class="st k5948" style="left:695px;top:446px;width:10px;height:10px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.7% 43.3%,100.0% 50.0%,56.7% 56.7%,50.0% 100.0%,43.3% 56.7%,0.0% 50.0%,43.3% 43.3%)"></b>
+                                </i>
+                                <i class="st k5949" style="left:842px;top:440px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5950" style="left:749px;top:444px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.7% 43.3%,100.0% 50.0%,56.7% 56.7%,50.0% 100.0%,43.3% 56.7%,0.0% 50.0%,43.3% 43.3%)"></b>
+                                </i>
+                                <i class="st k5955" style="left:620px;top:447px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5956" style="left:631px;top:451px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.0% 44.0%,100.0% 50.0%,56.0% 56.0%,50.0% 100.0%,44.0% 56.0%,0.0% 50.0%,44.0% 44.0%)"></b>
+                                </i>
+                                <i class="st k5962" style="left:630px;top:461px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,56.4% 43.6%,100.0% 50.0%,56.4% 56.4%,50.0% 100.0%,43.6% 56.4%,0.0% 50.0%,43.6% 43.6%)"></b>
+                                </i>
+                                <i class="st k5963" style="left:623px;top:468px;width:10px;height:10px;filter:drop-shadow(0 0 5px rgba(255,255,255,0.9));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,55.7% 44.3%,100.0% 50.0%,55.7% 55.7%,50.0% 100.0%,44.3% 55.7%,0.0% 50.0%,44.3% 44.3%)"></b>
+                                </i>
+                                <i class="st k5968" style="left:603px;top:476px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,57.8% 42.2%,100.0% 50.0%,57.8% 57.8%,50.0% 100.0%,42.2% 57.8%,0.0% 50.0%,42.2% 42.2%)"></b>
+                                </i>
+                                <i class="st k5972" style="left:592px;top:489px;width:3px;height:3px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 5px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                                <i class="st k5978" style="left:591px;top:503px;width:5px;height:5px;filter:drop-shadow(0 0 2px rgba(255,255,255,0.9)) drop-shadow(0 0 7px rgba(255,255,255,0.5));">
+                                    <b style="clip-path:polygon(50.0% 0.0%,58.1% 41.9%,100.0% 50.0%,58.1% 58.1%,50.0% 100.0%,41.9% 58.1%,0.0% 50.0%,41.9% 41.9%)"></b>
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title">Вам подарок!</div>
+                    <button class="open-btn" id="openBtn" type="button">Открыть</button>
+                </div>
+                <div class="mcol" id="mcol" inert>
+                    <section class="sheet" aria-labelledby="certificateTitle">
+                        <h2 id="certificateTitle">
+                            Электронный сертификат<br>«Читай-город»
+                        </h2>
+                        <div class="greeting">
+                            <p class="who">Александра</p>
+                            <div class="msg">
+                                <p>Поздравляем тебя с днем рождения! Оставайся всегда таким же &nbsp;добрым, отзывчивым и &nbsp;понимающим человеком. Пусть рядом с &nbsp;тобой будут только надежные и &nbsp;такие же &nbsp;клёвые люди, как ты. Никогда не &nbsp;унывай, улыбайся, озаряй этот мир своей прекрасной улыбкой. Пусть все печали обходят тебя стороной, а &nbsp;счастье и &nbsp;удача постоянно стучатся в &nbsp;твои двери. Живи, твори, сияй, мечтай и никогда не унывай!</p>
+                                <p>Искренне Ваша, Минерва МакГонагалл, заместитель директора!</p>
+                            </div>
+                        </div>
+                        <div class="card-data">
+                            <h3 class="lbl">Данные карты</h3>
+                            <div class="dbox">
+                                <div class="card-values">
+                                    <div class="dv">
+                                        <div class="card-value">
+                                            <span data-num>847 360 838 216 0</span>
+                                            <button class="cp" type="button" data-copy="num" aria-label="Скопировать номер карты">
+                                                <img src="./img/certificate-copy.svg" width="20" height="20" alt="">
+                                            </button>
+                                        </div>
+                                        <small>Номер карты</small>
+                                    </div>
+                                    <div class="dv">
+                                        <div class="card-value">
+                                            <span data-pin>516 294 703 851 6</span>
+                                            <button class="cp" type="button" data-copy="pin" aria-label="Скопировать пин-код">
+                                                <img src="./img/certificate-copy.svg" width="20" height="20" alt="">
+                                            </button>
+                                        </div>
+                                        <small>Пин-код</small>
+                                    </div>
+                                    <div class="pair">
+                                        <div class="dv">
+                                            <b>10 000 ₽</b>
+                                            <small>Номинал</small>
+                                        </div>
+                                        <div class="dv">
+                                            <b data-balance>10 000 ₽</b>
+                                            <small>Баланс</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn sec" type="button" data-pdf>
+                                    <img src="./img/certificate-download.svg" width="24" height="24" alt="">Скачать в PDF
+                                </button>
+                            </div>
+                            <button class="qrbox" id="qrTrigger" type="button" aria-haspopup="dialog" aria-controls="qrSheet" aria-label="Открыть QR-код сертификата">
+                                <span class="qrbox__hint">Покажите QR-код продавцу на кассе розничного магазина</span>
+                                <span class="perf" aria-hidden="true">
+                                    <span></span>
+                                </span>
+                                <img src="./img/certificate-qr.svg" width="160" height="160" alt="">
+                            </button>
+                        </div>
+                        <button class="btn pri" type="button" data-shop>К покупкам</button>
+                    </section>
+                    <section class="sheet faq" aria-labelledby="certificateFaqTitle">
+                        <h3 id="certificateFaqTitle">Часто задаваемые вопросы</h3>
+                        <div class="faq-items">
+                            <article>
+                                <h4>Как использовать сертификат в интернет-магазине?</h4>
+                                <div>
+                                    <p>Соберите онлайн-корзину с тем, о чём давно мечтали. Когда будете оформлять заказ, выберите способ оплаты – нажмите кнопку «Использовать подарочный сертификат». После останется только ввести номер и пин-код вашего сертификата в нужные поля и нажать кнопку «Принять».</p>
+                                    <p>Если вы не потратите сертификат полностью, остаток средств сохранится. А если сертификата не хватит для того, чтобы оплатить заказ, вы сможете внести доплату.</p>
+                                </div>
+                            </article>
+                            <article>
+                                <h4>Что можно оплатить сертификатом?</h4>
+                                <p>Товары в наших магазинах можно оплатить сертификатом. Выбирайте книжные хиты и новинки, захватывающие настолки и сувениры.</p>
+                            </article>
+                            <article>
+                                <h4>А если средств на сертификате не хватит или они останутся?</h4>
+                                <p>Если сумма вашего заказа – больше, чем номинал сертификата, просто оплатите разницу. Если сумма заказа – меньше, остаток средств на сертификате сохранится для следующих покупок.</p>
+                            </article>
+                            <article>
+                                <h4>Можно посмотреть юридические правила?</h4>
+                                <p>
+                                    Перед тем, как использовать сертификат, загляните в <span class="faq-accent">юридические правила</span>. В них – все нюансы, которые могут пригодиться.
+                                </p>
+                            </article>
+                            <article>
+                                <h4>Что делать, если остались вопросы?</h4>
+                                <p>
+                                    Вы можете связаться с нашими консультантами через <span class="faq-accent">форму для обратной связи</span>. Они помогут решить все вопросы – кроме того, чем закончились «Мёртвые души».
+                                </p>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="home-indicator" aria-hidden="true">
+                <img src="./img/home-indicator.svg" width="139" height="5" alt="">
+            </div>
+            <div class="qr-modal" id="qrModal" inert>
+                <section class="qr-sheet" id="qrSheet" role="dialog" aria-modal="true" aria-labelledby="qrSheetTitle">
+                    <button class="qr-sheet__close" id="qrClose" type="button" aria-label="Закрыть QR-код">
+                        <img src="./img/qr-sheet-close.svg" width="20" height="20" alt="">
+                    </button>
+                    <div class="qr-sheet__ticket">
+                        <div class="qr-sheet__code">
+                            <h2 id="qrSheetTitle">Покажите QR-код на кассе</h2>
+                            <img src="./img/certificate-qr-large.svg" width="200" height="200" alt="QR-код сертификата" draggable="false">
+                            <div class="card-value">
+                                <span id="qrNumber"></span>
+                                <button class="cp" type="button" data-copy="num" aria-label="Скопировать номер карты">
+                                    <img src="./img/certificate-copy.svg" width="20" height="20" alt="">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="qr-sheet__balance" id="qrBalance"></div>
+                    </div>
+                    <img class="qr-sheet__logo" src="./img/qr-sheet-logo.svg" alt="Читай-город" draggable="false">
+                    <img class="qr-sheet__home" src="./img/home-indicator.svg" width="139" height="5" alt="" draggable="false">
+                </section>
+            </div>
+            <div class="toast" id="toast" role="status"></div>
+        </div>
+        <nav class="proto" aria-label="Экраны прототипа">
+            <div id="pSteps"></div>
+            <button id="pReset" type="button" aria-label="Заново" title="Повторить вручение">
+                ↺<span class="pl"> Заново</span>
+            </button>
+        </nav>
+    </body>
+</html>
