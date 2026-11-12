@@ -24,6 +24,7 @@
 
 :root{
   --phone-width:393px;
+  --phone-height:852px;
   --nav-width:128px;
   --nav-gap:60px;
   --layout-inset:12px;
@@ -38,7 +39,7 @@
 html,body{width:100%;height:100%;margin:0}
 body{background:#000;color:var(--ink);font-family:var(--font);overflow:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-user-select:none;user-select:none}
 body,.phone-content{touch-action:manipulation}
-.app{position:absolute;top:50%;left:var(--phone-center);translate:-50% -50%;width:var(--phone-width);height:852px;border-radius:32px;overflow:hidden;background:var(--sky);isolation:isolate;transform:scale(var(--phone-scale,1));box-shadow:0 0 0 1px #333}
+.app{position:absolute;top:50%;left:var(--phone-center);translate:-50% -50%;width:var(--phone-width);height:var(--phone-height);border-radius:32px;overflow:hidden;background:var(--sky);isolation:isolate;transform:scale(var(--phone-scale,1));box-shadow:0 0 0 1px #333}
 .app.dark{background:var(--night)}
 .phone-content{position:absolute;inset:0;overflow:hidden;scrollbar-width:none}
 .phone-content::-webkit-scrollbar{display:none}
@@ -362,9 +363,26 @@ button:focus-visible{outline:2px solid var(--link);outline-offset:2px}
 }
 
 @media (max-width:560px){
-  :root{--nav-width:40px}
+  :root{--phone-center:50%}
+  .proto{
+    position:fixed;
+    inset:calc((100% - var(--phone-height) * var(--phone-scale, 1)) / 2) auto auto 50%;
+    z-index:1;
+    margin-right:0;
+    translate:-50% 0;
+    width:max-content;
+    max-width:calc(100% - 2 * var(--layout-inset));
+    max-height:none;
+    flex-direction:row;
+  }
+  #pSteps{
+    flex-direction:row;
+    padding:0 4px 0 0;
+    border-bottom:0;
+    border-right:1px solid rgba(0,0,0,.1);
+  }
   .proto .pl{display:none}
-  .proto button{padding:0;text-align:center}
+  .proto button{flex:none;width:26px;padding:0;text-align:center}
 }
 
 .qr-modal{
