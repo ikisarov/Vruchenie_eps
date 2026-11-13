@@ -33,6 +33,7 @@
   --sky:#a6e4ec; --night:#000314; --navy:#1a4072;
   --paper:#ffffff; --ink:#151719; --ink-2:#6f737a; --ink-3:#a9adb3; --line:#e4e6ea; --soft:#f2f3f5;
   --cta:#a8e6ef; --cta-ink:#0d2b33; --qr:#d3eda6; --qr-ink:#3c5a14; --link:#0b9db0;
+  --button-secondary-bg:#f1f1f1; --button-secondary-bg-active:#d4d4d4; --button-secondary-ink:#000;
   --font:"Onest","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
   color-scheme:light;
 }
@@ -114,8 +115,14 @@ button:focus-visible{outline:2px solid var(--link);outline-offset:2px}
 .line path{stroke-dasharray:var(--L,3600);stroke-dashoffset:var(--L,3600)}
 .circle{position:absolute;left:363px;top:363px;width:154px;height:154px;border-radius:50%;background:var(--night);transform:scale(0);transition:transform 1.3s cubic-bezier(.55,0,.25,1)}
 .title{position:absolute;z-index:21;inset:74px 16px auto;text-align:center;font-size:20px;font-weight:700;line-height:24px;transition:opacity .5s ease}
-.open-btn{position:absolute;z-index:21;inset:auto 16px 50px;height:48px;border-radius:8px;background-color:#f1f1f1;color:var(--ink);font-family:"BigCity Grotesque Pro",var(--font);font-weight:500;font-size:16px;-webkit-tap-highlight-color:transparent;transition:opacity .5s ease,background-color .15s ease-out}
-.open-btn:enabled:active{background-color:#d4d4d4;transition-duration:.5s,.07s}
+.open-btn{
+  position:absolute;z-index:21;inset:auto 0 50px;margin-inline:auto;
+  display:grid;place-items:center;width:170px;height:48px;padding:0 12px;border-radius:8px;
+  background-color:var(--button-secondary-bg);color:var(--button-secondary-ink);
+  font-family:"BigCity Grotesque Pro",var(--font);font-weight:500;font-size:16px;line-height:22px;
+  -webkit-tap-highlight-color:transparent;transition:opacity .5s ease,background-color .15s ease-out;
+}
+.open-btn:enabled:active{background-color:var(--button-secondary-bg-active);transition-duration:.5s,.07s}
 
 /* Original 1920×1080 Stardust bursts, positioned relative to the scene. */
 .sd{position:absolute;left:-520px;top:-100px;width:1920px;height:1080px;pointer-events:none}
