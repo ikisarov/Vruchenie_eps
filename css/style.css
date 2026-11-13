@@ -107,7 +107,7 @@ button:focus-visible{outline:2px solid var(--link);outline-offset:2px}
 }
 .glow{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;background:radial-gradient(42% 58% at 50% 50%, #1747c2 0%, #0b2265 42%, rgba(0,3,20,0) 78%);pointer-events:none}
 .stage{position:absolute;left:50%;top:50%;width:880px;height:880px;transform:translate(-50%,-50%) scale(.54);transition:top 1s cubic-bezier(.22,1,.36,1)}
-.app[data-scr="cert"] .stage{top:calc(50% + 4px)}
+.app[data-scr="cert"] .stage{top:calc(50% + 26px)}
 .box{position:absolute;inset:0}
 
 /* screen 1 */
